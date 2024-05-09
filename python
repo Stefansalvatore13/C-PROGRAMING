@@ -1,0 +1,463 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNS+fUHQ2UvG0mWGsb9SV6b",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Stefansalvatore13/C-PROGRAMING/blob/main/python\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 12,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UY0dpNu-Ql_x",
+        "outputId": "38c923e5-3575-4622-c022-7d6b5ce1dc61"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 2 3 4 5 6 7 8 9 10\n",
+            "the even list [2, 4, 6, 8, 10]\n",
+            "the square even list [4, 16, 36, 64, 100]\n",
+            "the odd list [1, 3, 5, 7, 9]\n",
+            "the squaer odd list [1, 9, 25, 49, 81]\n"
+          ]
+        }
+      ],
+      "source": [
+        "a=[int(z) for z in input().split()]\n",
+        "b=[]\n",
+        "c=[]\n",
+        "d=[]\n",
+        "e=[]\n",
+        "for i in a:\n",
+        "  if i %2==0:\n",
+        "    b.append(i)\n",
+        "    d.append(i*i)\n",
+        "  else:\n",
+        "    c.append(i)\n",
+        "    e.append(i*i)\n",
+        "print(\"the even list\",b)\n",
+        "print(\"the square even list\", d)\n",
+        "print(\"the odd list\",c)\n",
+        "print(\"the squaer odd list\",e)\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def find_max_min(numbers):\n",
+        "    if not numbers:\n",
+        "        return None, None\n",
+        "\n",
+        "    max_num = numbers[0]\n",
+        "    min_num = numbers[0]\n",
+        "\n",
+        "    for num in numbers:\n",
+        "        if num > max_num:\n",
+        "            max_num = num\n",
+        "        elif num < min_num:\n",
+        "            min_num = num\n",
+        "\n",
+        "    return max_num, min_num\n",
+        "\n",
+        "numbers_list = [10, 5, 20, 3, 15]\n",
+        "largest, smallest = find_max_min(numbers_list)\n",
+        "print(f\"Largest number: {largest}\")\n",
+        "print(f\"Smallest number: {smallest}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cGcCSghCWylO",
+        "outputId": "229172f4-2814-41e1-c046-52204fe64df6"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Largest number: 20\n",
+            "Smallest number: 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = [23, 45, 12, 67, 89, 34, 56]\n",
+        "\n",
+        "\n",
+        "second_largest = float('-inf')\n",
+        "largest = float('-inf')\n",
+        "second_smallest = float('inf')\n",
+        "smallest = float('inf')\n",
+        "\n",
+        "\n",
+        "for num in numbers:\n",
+        "    if num > largest:\n",
+        "        second_largest = largest\n",
+        "        largest = num\n",
+        "    elif num > second_largest and num != largest:\n",
+        "        second_largest = num\n",
+        "\n",
+        "    if num < smallest:\n",
+        "        second_smallest = smallest\n",
+        "        smallest = num\n",
+        "    elif num < second_smallest and num != smallest:\n",
+        "        second_smallest = num\n",
+        "\n",
+        "print(\"Second largest number in the list:\", second_largest)\n",
+        "print(\"Second smallest number in the list:\", second_smallest)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zHfU6ZUtbZf_",
+        "outputId": "781b1121-6daa-4748-bf4a-21a67ecc397c"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Second largest number in the list: 67\n",
+            "Second smallest number in the list: 23\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "numbers = [5, 3, 7, 9, 8, 4, 2]\n",
+        "\n",
+        "\n",
+        "for i in range(len(numbers)):\n",
+        "    for j in range(i+1, len(numbers)):\n",
+        "        if numbers[i] > numbers[j]:\n",
+        "            numbers[i], numbers[j] = numbers[j], numbers[i]\n",
+        "\n",
+        "ascending_order = numbers\n",
+        "\n",
+        "for i in range(len(numbers)):\n",
+        "    for j in range(i+1, len(numbers)):\n",
+        "        if numbers[i] < numbers[j]:\n",
+        "            numbers[i], numbers[j] = numbers[j], numbers[i]\n",
+        "\n",
+        "descending_order = numbers\n",
+        "\n",
+        "print(\"Ascending Order:\", ascending_order)\n",
+        "print(\"Descending Order:\", descending_order)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LhYucxyqcRFW",
+        "outputId": "aec24483-7d4d-4779-df9e-9fae2e36a732"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Ascending Order: [9, 8, 7, 5, 4, 3, 2]\n",
+            "Descending Order: [9, 8, 7, 5, 4, 3, 2]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a = [45, 67, 83, 24, 55, 87, 77, 34]\n",
+        "\n",
+        "\n",
+        "number_to_find = 55\n",
+        "\n",
+        "\n",
+        "for index, num in enumerate(a):\n",
+        "    if num == number_to_find:\n",
+        "        print(\"The position of\", number_to_find, \"is:\", index)\n",
+        "        break"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-ADSeY0NcrMk",
+        "outputId": "0bde9cc1-bef7-4f24-ef98-1ac66101cb1a"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The position of 55 is: 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from collections import Counter\n",
+        "a = [4, 5, 6, 4, 6, 7, 4, 2, 4, 8, 4]\n",
+        "counter = Counter(a)\n",
+        "most_common_element = counter.most_common(1)[0][0]\n",
+        "\n",
+        "print(f\"The most frequent element in the list is: {most_common_element}\")"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ZpGaRH35ct0Z",
+        "outputId": "75580164-e4d8-4e69-d2fe-33dd0a564dde"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "The most frequent element in the list is: 4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a= ['Ten', 'Twenty', 'Thirty']\n",
+        "values = [10, 20, 30]\n",
+        "\n",
+        "result_dict = {}\n",
+        "for key, value in zip(a, values):\n",
+        "    result_dict.update({key: value})\n",
+        "\n",
+        "print(result_dict)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "WvN_z4wsdtJL",
+        "outputId": "838b4c76-dbf5-4dfc-f420-b1ff90f87a15"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'Ten': 10, 'Twenty': 20, 'Thirty': 30}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "a=[\"A\",\"B\",\"C\",\"n\"]\n",
+        "c=[0,0,0,0]\n",
+        "v=['a','b','c','d','e','f','g','h','i','j']\n",
+        "aa=[]\n",
+        "bb=[]\n",
+        "cc=[]\n",
+        "n=[]\n",
+        "bruh=[aa,bb,cc,n]\n",
+        "print(\"To vote A press 1\\nTo vote B press 2\\nTo vote C press 3\\nTo vote none press 4\")\n",
+        "for i in v:\n",
+        "  w=int(input(f\"Please make ur vote {i} :\"))\n",
+        "  if(w==1):\n",
+        "    aa.append(i)\n",
+        "    c[0]+=1\n",
+        "  elif(w==2):\n",
+        "    bb.append(i)\n",
+        "    c[1]+=1\n",
+        "  elif(w==3):\n",
+        "    cc.append(i)\n",
+        "  elif(w==4):\n",
+        "    n.append(i)\n",
+        "  else:\n",
+        "    print(\"Make sure u Enter crt option next time :)\")\n",
+        "m=0\n",
+        "for i in range(4):\n",
+        "  if(m<c[i]):\n",
+        "    m=c[i]\n",
+        "for i in range(4):\n",
+        "  if(m==c[i]):\n",
+        "    print(\"The winner is\",a[i],\"with\",c[i],\"votes\")\n",
+        "    print(bruh[i])\n",
+        "    c[i]=0\n",
+        "    break\n",
+        "sm=0\n",
+        "for i in range(4):\n",
+        "  if(sm<c[i]):\n",
+        "    sm=c[i]\n",
+        "for i in range(4):\n",
+        "  if(sm==c[i]):\n",
+        "    print(\"The Runner is\",a[i],\"with\",c[i],\"votes\")\n",
+        "    print(bruh[i])\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "e0uq1XAUeMoR",
+        "outputId": "ec803583-cf8f-4e67-ae5d-539dba06b629"
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "To vote A press 1\n",
+            "To vote B press 2\n",
+            "To vote C press 3\n",
+            "To vote none press 4\n",
+            "Please make ur vote a :1\n",
+            "Please make ur vote b :2\n",
+            "Please make ur vote c :3\n",
+            "Please make ur vote d :4\n",
+            "Please make ur vote e :1\n",
+            "Please make ur vote f :2\n",
+            "Please make ur vote g :1\n",
+            "Please make ur vote h :1\n",
+            "Please make ur vote i :1\n",
+            "Please make ur vote j :2\n",
+            "The winner is A with 5 votes\n",
+            "['a', 'e', 'g', 'h', 'i']\n",
+            "The Runner is B with 3 votes\n",
+            "['b', 'f', 'j']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def rupee_to_dollar(rupees):\n",
+        "\n",
+        "  dollars = rupees / 74.56\n",
+        "  return dollars\n",
+        "\n",
+        "def celsius_to_fahrenheit(celsius):\n",
+        "\n",
+        "  fahrenheit = (celsius * 1.8) + 32\n",
+        "  return fahrenheit\n",
+        "\n",
+        "\n",
+        "\n",
+        "def bmi_calculation(weight, height):\n",
+        "\n",
+        "  bmi = weight / (height * height)\n",
+        "  return bmi\n",
+        "\n",
+        "\n",
+        "def simple_interest(principal, rate, time):\n",
+        "\n",
+        "\n",
+        "  interest = (principal * rate * time) / 100\n",
+        "  return interest\n",
+        "\n",
+        "\n",
+        "rupee_amount = 1000\n",
+        "dollar_amount = rupee_to_dollar(rupee_amount)\n",
+        "print(f\"{rupee_amount} rupees is equal to {dollar_amount:.2f} dollars\")\n",
+        "\n",
+        "celsius_temperature = 25\n",
+        "fahrenheit_temperature = celsius_to_fahrenheit(celsius_temperature)\n",
+        "print(f\"{celsius_temperature}°C is equal to {fahrenheit_temperature:.1f}°F\")\n",
+        "\n",
+        "weight = 70\n",
+        "height = 1.75\n",
+        "bmi = bmi_calculation(weight, height)\n",
+        "print(f\"BMI is {bmi:.2f}\")\n",
+        "\n",
+        "principal = 10000\n",
+        "rate = 5"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_qkF4B33pc1z",
+        "outputId": "d4219619-f8c3-4e42-f8ee-b75f3f4669f8"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1000 rupees is equal to 13.41 dollars\n",
+            "25°C is equal to 77.0°F\n",
+            "BMI is 22.86\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "input_list = [0, 1, 0, 1, 1, 0, 1, 0, 1, 0]\n",
+        "sorted_list = sorted(input_list)\n",
+        "\n",
+        "print(sorted_list)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fr9ho48AYl2M",
+        "outputId": "e523dd71-d708-4727-afdf-45f7e06752be"
+      },
+      "execution_count": 33,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[0, 0, 0, 0, 0, 1, 1, 1, 1, 1]\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
