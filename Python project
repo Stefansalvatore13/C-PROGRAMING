@@ -1,4 +1,4 @@
-
+from tkinter import*
 def findGst() :
 
 	org_cost= int(org_priceField.get())
